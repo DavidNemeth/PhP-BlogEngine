@@ -1,154 +1,139 @@
 body {
+    font-size: 16px;
+    font-family: "Roboto", Arial, sans-serif;
     padding: 0;
     margin: 0;
-    font-family: "Roboto", Times, serif;
-    font-size: 16px;
-    line-height: 20px;
 }
 
-/* Main section */
-.main{
-    width: 80%;
-    margin: 48px auto;
-}
-.edit-quote {
-    text-align: center;
-}
-
-.quotes {
-    text-align: center;
-}
-
-.quote{
-    position: relative;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 2px #ccc;
-    width: calc(25% - 48px);
-    margin: 32px;
-    padding: 16px;
-    vertical-align: top;
-    background-color: #fff6e0;
-}
-
-.quote.first-in-line{
-    margin-left: 0;
-}
-
-.quote.last-in-line{
-    margin-right: 0;
-}
-
-.quote .info {
-    margin-top: 8px;
-    font-size: 12px;
-    font-family: "Roboto", sans-serif;
-    color: #ccc;
-}
-
-.quote .info a {
-    color: #ccc;
-}
-
-.quote .info a:hover,
-.quote .info a:active {
-    color: #aaa;
-}
-
-.quote .delete {
-    position: absolute;
-    top: 0px;
-    right: 4px;
-    font-family: sans-serif;
-}
-
-.quote .delete a {
-    color: #bbb;
+a {
+    color: #ad67d2;
     text-decoration: none;
 }
 
-.quote .delete a:hover,
-.quote .delete a:active {
-    color: red;
+a:hover,
+a:active {
+    color: #8900c6;
 }
 
-.input-group {
-    margin: 16px 0;
+h3 {
+    margin: 0;
 }
 
-.input-group label {
-    display: block;
-    text-align: center;
-    font-weight: bold;
-}
-
-.input-group input,
-.input-group textarea {
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-family: inherit;
-    font-size: inherit;
-    padding: 4px 8px;
-}
-
-.input-group #author,
-.input-group #email
-{
-    width: 200px;
-}
-
-.input-group textarea {
-    width: 400px;
+.main {
+    width: 700px;
+    margin: 32px auto;
 }
 
 .btn {
-    border: 1px solid #ccc;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid #8900c6;
     border-radius: 3px;
-    background-color: #ffecd2;
-    font-size-adjust: inherit;
-    font-family: "Roboto", sans-serif;
-    padding: 8px;
-    cursor: pointer;
+    padding: 4px 6px;
+    background-color: #8900c6;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.btn.danger {
+    color: #e5003c;
+    border: 1px solid #e5003c;
+    background-color: #ffc4be;
+}
+
+.btn.danger:hover,
+.btn.danger:active {
+    background-color: #e5003c;
+    color: white;
 }
 
 .btn:hover,
 .btn:active {
-    background-color: #fff6e0;
+    background-color: white;
+    color: #8900c6;
 }
 
-.info-box {
+.social-slider {
+    width: 50px;
+    height: 100px;
+    position: fixed;
+    left: 0;
+    top: 25vh;
+    background-color: #ad67d2;
+    box-shadow:  1px 1px 1px darkgray;
+}
+
+.main-nav {
+    border-bottom: 1px solid lightgray;
+    box-shadow: 0 2px 2px lightgray;
     text-align: center;
-    margin: auto;
-    padding: 16px;
-    border-radius: 3px;
-    width: 350px;
+    font-size: 28px;
+    background-color: #ad67d2;
 }
 
-.info-box.fail {
-    border: 1px solid #ff6b6a;
-    background-color: #ffc2ba;
-    color: #ff6b6a;
+.main-nav ul,
+.main-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.info-box.success {
-    border: 1px solid #46cc71;
-    background-color: #bdffb6;
-    color: #46cc71;
+.main-nav ul li,
+.main-footer ul li {
+    display: inline-block;
+    padding: 32px 16px;
+    transition: background-color 0.2s;
 }
 
-.filter-bar {
-    width: 100%;
-    padding: 16px;
-    background-color: #f9ffc3;
-    color: black;
+.main-nav li:hover {
+    background-color: white;
+}
+
+.main-nav a {
+    color: white;
+    transition: all 0.2;
+}
+
+.main-nav li:hover a,
+.main-nav a:hover,
+.main-nav a:active {
+    color: #ad67d2;
+}
+
+.active {
+    background-color: white;
+}
+
+.active a {
+    color: #ad67d2;
+}
+
+.main-footer {
+    padding: 32px;
     text-align: center;
+    font-size: 14px;
 }
 
-.pagnation {
-    font-size: 20px;
+.blog-post {
+    border: 2px solid #ad67d2;
+    border-radius: 8px 0 8px 8px;
+    padding: 16px;
+    margin-bottom: 32px;
 }
 
-.padding a:hover,
-.pagnation a:active {
-    color: #ccc;
+.subtitle {
+    color: darkgray;
+    font-size: 14px;
+}
+
+.pagination {
+    font-size: 28px;
+}
+
+.pagination a {
+    padding: 0 16px;
+}
+
+#contact-form input {
+    width: 66%;
 }

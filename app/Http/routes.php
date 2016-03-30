@@ -25,41 +25,31 @@
 */
 
 Route::group(['middleware' => ['web']],function(){
-   Route::get('/{author?}', [
-         'uses' => 'QuoteController@getIndex',
-         'as' => 'index'
-      ]);
-      
-   Route::post('/new', [
-         'uses' => 'QuoteController@postQuote',
-         'as' => 'create'
-      ]);
-      
-   Route::get('/delete/{quote_id}',[
-         'uses' => 'QuoteController@getDeleteQuote',
-         'as' => 'delete'
-      ]);   
-   
-   Route::get('/admin/login',[
-         'uses' => 'AdminController@getLogin',
-         'as' => 'admin.login'
-      ]);
-      
-   Route::post('/admin/login',[
-         'uses' => 'AdminController@postLogin',
-         'as' => 'admin.login'
-      ]);
-      
-   Route::group(['middleware' => 'auth'], function() {
-      
-      Route::get('/admin/dashboard',[
-         'uses' => 'AdminController@getDashboard',
-         'as' => 'admin.dashboard'
-      ]);
-      
-      Route::get('/admin/logout',[
-         'uses' => 'AdminController@getLogout',
-         'as' => 'admin.logout'
-      ]); 
-   });
+    
+    Route::get('/', [
+            'uses' => 'PostController@getBlogIndex',
+            'as' => 'blog.index'
+        ]);
+        
+    Route::get('/blog', [
+            'uses' => 'PostController@getBlogIndex',
+            'as' => 'blog.index'
+        ]);    
+    
+    Route::get('/blog/{post_id}', [
+            'uses' => 'PostController@getSinglePost',
+            'as' => 'blog.single'
+        ]);   
+        
+    /* Other Routes */
+    
+    Route::get('/about', function() {
+        return view('frontend.other.about');
+    })->name('about');
+    
+    Route::get('/contact', [
+            'uses' => 'ContactMessageController@getContactIndex',
+            'as' => 'contact'
+        ]);
+        
 });
