@@ -1,3 +1,3 @@
-# Quote app
+# Blogengine
 
-Purpose of this app if to practice and learn the basics of php with laravel framework, using mvc structure, with ajax.
+Complete blogengine with front and back-end with php.
