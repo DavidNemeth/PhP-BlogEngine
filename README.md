@@ -1,3 +1,3 @@
 # Blogengine
 
-Complete blogengine with front and back-end with php.
+Complete blogengine, front and back-end with php.
