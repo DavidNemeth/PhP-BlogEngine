@@ -2,6 +2,7 @@
 
 @section('styles')
     <link rel="stylesheet" href="{{ URL::secure('src/css/model.css') }}" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 @endsection
 
 @section('content')
@@ -12,32 +13,35 @@
                 <nav>
                     <ul>
                         <li><a href="{{ route('admin.blog.create_post') }}" class="btn">New Post</a></li>
-                        <li><a href="" class="btn">Show all Posts</a></li>
+                        <li><a href="{{ route('admin.blog.index') }}" class="btn">Show all Posts</a></li>
                     </ul>
                 </nav>
             </header>
             <section>
                 <ul>
-                    <!-- if no posts.. -->
+                    @if(count($posts) == 0)
                     <li>No Posts</li>
-                    <!-- if posts.. -->
-                    <li>
-                        <article>
-                            <div class="post-info">
-                                <h3>Post Tittle</h3>
-                                <span class="info">Post Author | Date</span>
-                            </div>
-                            <div class="edit">
-                                <nav>
-                                    <ul>
-                                        <li><a href="">View Post</a></li>
-                                        <li><a href="">Edit</a></li>
-                                        <li><a href="" class="danger">Delete</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </article>
-                    </li>
+                    @else
+                    @foreach($posts as $post)
+                        <li>
+                            <article>
+                                <div class="post-info">
+                                    <h3>{{ $post->title }}</h3>
+                                    <span class="info">{{ $post->author }} | {{ $post->created_at }}</span>
+                                </div>
+                                <div class="edit">
+                                    <nav>
+                                        <ul>
+                                            <li><a href="">View Post</a></li>
+                                            <li><a href="">Edit</a></li>
+                                            <li><a href="" class="danger">Delete</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </article>
+                        </li>
+                    @endforeach
+                    @endif
                 </ul>
             </section>
         </div>

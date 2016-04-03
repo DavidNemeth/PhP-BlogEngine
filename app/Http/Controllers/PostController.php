@@ -10,9 +10,18 @@ class PostController extends Controller
 {
     public function getBlogIndex()
     {
-        //TODO: posts and paginate
-        
-        return view('frontend.blog.index');
+        $posts = Post::paginate(3);
+        foreach ($posts as $post)
+        {
+            $post->body = $this->shortenText($post->body, 20);
+        }
+        return view('frontend.blog.index', ['posts' => $posts]);
+    }
+    
+    public function getPostIndex()
+    {
+        $posts = Post::paginate(3);
+        return view('admin.blog.index', ['posts' => $posts]);
     }
     
     public function getSinglePost($post_id, $end = 'frontend')
@@ -47,5 +56,16 @@ class PostController extends Controller
                 'success' => 'Post successfully created!'
             ]);
         
+    }
+    
+    private function shortenText($text, $words_count)
+    {
+        if (str_word_count($text, 0) > $words_count)
+        {
+            $words = str_word_count($text, 2);
+            $pos = array_keys($words);
+            $text = substr($text, 0, $pos[$words_count]) . '...';
+        }
+        return $text;
     }
 }
