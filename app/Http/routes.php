@@ -104,5 +104,15 @@ Route::group(['middleware' => ['web']],function(){
                     'uses' => 'CategoryController@postCreateCategory',
                     'as' => 'admin.blog.category.create'
                 ]);
+                
+            Route::post('/blog/categories/update', [
+                    'uses' => 'CategoryController@postUpdateCategory',
+                    'as' => 'admin.blog.category.update'
+                ]);
+                
+            Route::get('/blog/category/{category_id}/delete', [
+                    'uses' => 'CategoryController@getDeleteCategory',
+                    'as' => 'admin.blog.category.delete'
+                ]);
         });
 });

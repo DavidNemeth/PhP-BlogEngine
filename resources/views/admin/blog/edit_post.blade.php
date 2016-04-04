@@ -29,7 +29,7 @@
             </div>
             <div class="input-group">
                 <label for="body">Body</label>
-                <textarea name="body" id="body" rows="12" {{ $errors->has('body')  ? 'class=has-error' : ''}}>{{ Request::old('body') ? Request::old('body') : isset($post) ? $post->body : '' }}" ></textarea>
+                <textarea name="body" id="body" rows="12" {{ $errors->has('body')  ? 'class=has-error' : ''}}>{{ Request::old('body') ? Request::old('body') : isset($post) ? $post->body : '' }}</textarea>
             </div>
             <button type="submit" class="btn">Update Post</button>
             <input type="hidden" name="_token" value="{{ Session::token() }}" />

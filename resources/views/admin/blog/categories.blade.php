@@ -8,13 +8,13 @@
 @section('content')
     <div class="container">
         <section id="category-admin">
-            <form action="" method="post">
+
                 <div class="input-group">
                     <label for="name">Category name</label>
                     <input type="text" name="name" id="name" />
                     <button type="submit" class="btn">Create Category</button>
                 </div>
-            </form>
+
         </section>
         <section class="list">
             @foreach($categories as $category)
