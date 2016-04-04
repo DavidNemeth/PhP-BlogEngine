@@ -82,9 +82,10 @@ function startDelete(event) {
 
 function deleteCategory(event){
     event.preventDefault();
+    
     event.target.removeEventListener('click', startDelete);
     var categoryId = event.path[4].previousElementSibling.dataset['id'];
-    ajax("GET", "/admin/blog/category/", + categoryId + "/delete", null, categoryDeleted,[event.path[5]]);
+    ajax("GET", "/admin/blog/category/" + categoryId + "/delete", null, categoryDeleted,[event.path[5]]);
 }
 
 function categoryDeleted(params, success, responseObj) {
