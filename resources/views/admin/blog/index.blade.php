@@ -1,7 +1,7 @@
 @extends('layouts.admin-master')
 
 @section('styles')
-    <link rel="stylesheet" href="{{ URL::secure('src/css/model.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ URL::secure('src/css/modal.css') }}" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 @endsection
 
@@ -12,7 +12,6 @@
         <a href="{{ route('admin.blog.create_post') }}" class="btn">New Post</a>
     </section>
     <section class="list">
-
             @if(count($posts) == 0)
             <li>No Posts</li>
             @else

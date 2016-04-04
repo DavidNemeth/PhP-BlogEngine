@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Admin area</title>
-        <link rel="stylesheet" href="{{ URL::secure('src/css/admin.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ URL::secure('src/css/admin.css') }}">
         @yield('styles')
     </head>
     <body>

@@ -64,6 +64,7 @@ Route::group(['middleware' => ['web']],function(){
                     'uses' => 'PostController@getCreatePost',
                     'as' => 'admin.blog.create_post'
                 ]);
+                
             Route::post('/blog/post/create', [
                     'uses' => 'PostController@postCreatePost',
                     'as' => 'admin.blog.post.create'
@@ -92,6 +93,16 @@ Route::group(['middleware' => ['web']],function(){
             Route::get('/blog/post/{post_id}/delete', [
                     'uses' => 'PostController@getDeletePost',
                     'as' => 'admin.blog.post.delete'
+                ]);
+                
+            Route::get('/blog/categories', [
+                    'uses' => 'CategoryController@getCategoryIndex',
+                    'as' => 'admin.blog.categories'
+                ]);
+                
+            Route::post('/blog/category/create', [
+                    'uses' => 'CategoryController@postCreateCategory',
+                    'as' => 'admin.blog.category.create'
                 ]);
         });
 });

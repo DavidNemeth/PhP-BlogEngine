@@ -200,7 +200,7 @@ header.top-nav a:active {
 #category-admin form input {
     line-height: 25px;
     border-radius: 3px;
-    border: 1px solid #ccc;
+    Border: 1px solid #ccc;
 }
 
 #category-admin form input:focus {
