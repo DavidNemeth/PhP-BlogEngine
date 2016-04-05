@@ -14,6 +14,10 @@
         <article class="blog-post">
                 <h3>{{ $post->title }}</h3>
                 <span class="subtitle">{{ $post->author }} | {{ $post->created_at }}</span>
+                <br>
+                @foreach($post->categories as $post_category)
+                |<a>{{ $post_category->name }}</a>
+                @endforeach
                 <p>{{ $post->body }}</p>
                 <a href="{{ route('blog.single', ['post_id' => $post->id, 'end' => 'frontend']) }}">Read more</a>
         </article>

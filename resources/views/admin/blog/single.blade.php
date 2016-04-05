@@ -10,6 +10,10 @@
     <section id="post">
         <h1>{{ $post->title }}</h1>
         <span class="info">{{ $post->author }} | {{ $post->created_at }}</span>
+        <br>
+        @foreach($post->categories as $post_category)
+                <a>{{ $post_category->name }}</a>
+        @endforeach
         <p> {{ $post->body }}</p>
     </section>
 </div>

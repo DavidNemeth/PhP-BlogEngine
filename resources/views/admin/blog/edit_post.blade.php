@@ -23,15 +23,15 @@
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                 </select>
-                <button type="buttyon" class="btn">Update Category</button>
+                <button type="button" class="btn">Update Category</button>
                 <div class="added-categories">
                     <ul>
-                        @foreach($post_categories as $post_caegory)
+                        @foreach($post_categories as $post_category)
                             <li><a href="#" data-id="{{ $post_category->id }}">{{ $post_category->name }}</a></li>
                         @endforeach
                     </ul>
                 </div>
-                <input type="hidden" none="categories" id="categories" value="{{ implode(',', $post_categories_ids) }}">
+                <input type="hidden" name="categories" id="categories" value="{{ implode(',', $post_categories_ids) }}">
             </div>
             <div class="input-group">
                 <label for="body">Body</label>

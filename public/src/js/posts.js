@@ -12,8 +12,8 @@ var docReady = setInterval(function() {
     addCategoryBtn.addEventListener('click', addCategoryToPost);
     addedCategoriesText = document.getElementsByClassName('added-categories')[0];
     
-    for (var i = 0; i < addedCategoriesText.firstElementChild,children.length; i++) {
-        addedCategoriesText.firstElementChild.children[i].fiirstElementChild.addEventListener('click', removeCategoryFromPost);
+    for (var i = 0; i < addedCategoriesText.firstElementChild.children.length; i++) {
+        addedCategoriesText.firstElementChild.children[i].firstElementChild.addEventListener('click', removeCategoryFromPost);
     }
 }, 100);
 

@@ -55,7 +55,12 @@ class PostController extends Controller
         $post->body = $request['body'];
         $post->save();
         
-        // attach cat
+        if (strlen($request['categories'])> 0) {
+            $categoryIDs = explode(',', $request['categories']);
+            foreach ($categoryIDs as $categoryID) {
+                $post->categories()->attach($categoryID);
+            }
+        }
         
         return redirect()->route('admin.index')->with([
                 'success' => 'Post successfully created!'
@@ -76,10 +81,10 @@ class PostController extends Controller
         }
         if (!$post) 
         {
-            return redirect()->route('blog.index')->with(['fail' => 'Post not found!']);
+            return redirect()->route('blog.index')->with(['fail' => 'post not found']);
         }
         
-        return view('admin.blog.edit_post',['post' => $post, 'categories' => $categories, 'post_categories' => $post_categories, 'post_categories_ids' =>$post_categories_ids]);
+        return view('admin.blog.edit_post',['post' => $post, 'categories' => $categories, 'post_categories' => $post_categories, 'post_categories_ids' => $post_categories_ids]);
     }
     
     public function postUpdatePost(Request $request)
@@ -94,8 +99,16 @@ class PostController extends Controller
         $post->author = $request['author'];
         $post->body = $request['body'];
         $post->update();
-        //categories TODO
-        return redirect()->route('admin.index')->with(['success' => 'Post successfully updated!']);
+        $post->categories()->detach();
+        
+        if (strlen($request['categories'])> 0) {
+            $categoryIDs = explode(',', $request['categories']);
+            foreach ($categoryIDs as $categoryID) {
+                $post->categories()->attach($categoryID);
+            }
+        }
+        
+        return redirect()->route('admin.index')->with(['success' => "post updated"]);
     }
     
     public function getDeletePost($post_id)

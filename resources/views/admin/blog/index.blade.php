@@ -20,6 +20,10 @@
                     <article>
                         <div class="post-info">
                             <h3>{{ $post->title }}</h3>
+                            @foreach($post->categories as $post_category)
+                                <small>{{ $post_category->name }}</small>
+                            @endforeach
+                            <br>
                             <span class="info">{{ $post->author }} | {{ $post->created_at }}</span>
                         </div>
                         <div class="edit">
@@ -35,7 +39,6 @@
 
             @endforeach
             @endif
-
     </section>
     @if($posts->lastPage() > 1)
         <section class="pagination">

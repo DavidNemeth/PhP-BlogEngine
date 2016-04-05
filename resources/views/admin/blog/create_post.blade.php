@@ -23,11 +23,11 @@
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                 </select>
-                <button type="buttyon" class="btn">Add Category</button>
+                <button type="button" class="btn">Add Category</button>
                 <div class="added-categories">
                     <ul></ul>
                 </div>
-                <input type="hidden" none="categories" id="categories">
+                <input type="hidden" name="categories" id="categories">
             </div>
             <div class="input-group">
                 <label for="body">Body</label>
