@@ -55,7 +55,7 @@ Route::group(['middleware' => ['web']],function(){
     Route::post('/contact/sendmail', [
             'uses' => 'ContactMessageController@postSendMessage',
             'as' => 'contact.send'
-        ]);    
+        ]);
     
     Route::group([
             'prefix' => '/admin'
@@ -118,6 +118,16 @@ Route::group(['middleware' => ['web']],function(){
             Route::get('/blog/category/{category_id}/delete', [
                     'uses' => 'CategoryController@getDeleteCategory',
                     'as' => 'admin.blog.category.delete'
+                ]);
+                
+            Route::get('/contact/messages', [
+                    'uses' => 'ContactMessageController@getContactMessageIndex',
+                    'as' => 'admin.contact.index'
+                ]);
+            
+            Route::get('/contact/message/{message_id}/delete', [
+                    'uses' => 'ContactMessageController@getDeleteMessage',
+                    'as' => 'admin.contact.delete'
                 ]);
         });
 });

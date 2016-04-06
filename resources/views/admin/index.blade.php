@@ -1,7 +1,7 @@
 @extends('layouts.admin-master')
 
 @section('styles')
-    <link rel="stylesheet" href="{{ URL::secure('src/css/model.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ URL::secure('src/css/modal.css') }}" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 @endsection
 
@@ -49,20 +49,21 @@
             <header>
                 <nav>
                     <ul>
-                        <li><a href="" class="btn">Show all Messages</a></li>
+                        <li><a href="{{ route('admin.contact.index') }}" class="btn">Show all Messages</a></li>
                     </ul>
                 </nav>
             </header>
             <section>
                 <ul>
-                    <!-- if no messages.. -->
-                    <li>No Messages</li>
-                    <!-- if messages.. -->
+                    @if (count($contact_messages) == 0)
+                        <li>No Messages</li>
+                    @endif
+                    @foreach($contact_messages as $contact_message)
                     <li>
-                        <article data-message="Body" data-id="ID">
+                        <article data-message="{{ $contact_message->body }}" data-id="{{ $contact_message->id }}" class="contact-message">
                             <div class="message-info">
-                                <h3>Message Subject</h3>
-                                <span class="info">Sender: name | Date</span>
+                                <h3>{{ $contact_message->subject }}</h3>
+                                <span class="info">{{ $contact_message->sender }} | {{ $contact_message->created_at  }}</span>
                             </div>
                             <div class="edit">
                                 <nav>
@@ -74,6 +75,7 @@
                             </div>
                         </article>
                     </li>
+                    @endforeach
                 </ul>
             </section>
         </div>
