@@ -14,7 +14,7 @@
             @foreach($contact_messages as $contact_message)
                 <article data-message="{{ $contact_message->body }}" data-id="{{ $contact_message->id }}" class="contact-message">
                     <div class="category-info" data-id="{{ $contact_message->id }}">
-                        <h3>{{ $contact_message->sibject }}</h3>
+                        <h3>{{ $contact_message->subject }}</h3>
                         <span class="info">Sender: {{ $contact_message->sender }} | {{ $contact_message->created_at }}</span>
                     </div>
                     <div class="edit">

@@ -57,14 +57,30 @@ Route::group(['middleware' => ['web']],function(){
             'as' => 'contact.send'
         ]);
     
+    Route::get('/admin/login', [
+            'uses' => 'AdminController@getLogin',
+            'as' => 'admin.login'
+        ]);
+        
+    Route::post('/admin/login', [
+            'uses' => 'AdminController@postLogin',
+            'as' => 'admin.login'
+        ]);    
     Route::group([
-            'prefix' => '/admin'
+            'prefix' => '/admin',
+            'middleware' => 'auth'
         ], function(){
            
             Route::get('/',[
                 'uses' => 'AdminController@getIndex',
                 'as' => 'admin.index'
-               ]); 
+               ]);
+               
+            Route::get('/logout', [
+                    'uses' => 'AdminController@getLogout',
+                    'as' => 'admin.logout'
+                ]);
+               
             Route::get('/blog/posts/create', [
                     'uses' => 'PostController@getCreatePost',
                     'as' => 'admin.blog.create_post'
