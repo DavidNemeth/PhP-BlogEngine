@@ -1,3 +1,9 @@
-# Blogengine
+# PhP-Blogengine
 
-Complete blogengine, front and back-end with php.
+Complete modern blog-engine, front and back-end.
+
+PhP - Laravel framework
+Mysql
+Ajax
+JQuery
+Custom css
